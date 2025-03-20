@@ -58,7 +58,17 @@ class SelectionSort:
         """
         # STUDENT TODO: Implement the selection sort algorithm
         # You should use the helper methods _less and _exch
-        pass
+        
+        n = len(arr)
+        for i in range(n):
+            min_index = i
+        
+        for j in range(i + 1, n):
+            if self._less(arr[j], arr[min_index]):
+                min_index = j
+        
+        if i != min_index:
+            self._exch(arr, i, min_index)
     
     def is_sorted(self, arr: List[T]) -> bool:
         """
@@ -68,7 +78,7 @@ class SelectionSort:
             arr: The array to check
             
         Returns:
-            True if the array is sorted, False otherwise
+            True if the array is sorted, False otherwise 
         """
         for i in range(1, len(arr)):
             if self._less(arr[i], arr[i-1]):
